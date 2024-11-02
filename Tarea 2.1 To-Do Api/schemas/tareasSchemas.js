@@ -35,3 +35,4 @@ const tareaSchema = z.object(
 )
 
 export const validacionTarea = (tarea) => tareaSchema.safeParse(tarea)
+export const validatePartialSchema = (tarea) => tareaSchema.partial().safeParse(tarea)

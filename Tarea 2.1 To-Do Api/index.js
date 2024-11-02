@@ -1,6 +1,6 @@
 import express, {json} from 'express'
 import tareas from './ToDo/tareas.json' with {type: "json"}
-import { validacionTarea} from './schemas/tareasSchemas.js';
+import { validacionTarea, validatePartialSchema} from './schemas/tareasSchemas.js';
 import { establecerID, guardarEnArchivo } from './ToDo/otros.js';
 
 
@@ -92,7 +92,7 @@ app.post('/tareas', (req, res) => {
 //ACTUALIZAR TAREA
 app.put('/tareas/:id', (req, res) => {
     const data = req.body;
-    const { success, data: tarea, error } = validacionTarea(data);
+    const { success, data: tarea, error } = validatePartialSchema(data);
 
     if (!success) {
         return res.status(400).json({
