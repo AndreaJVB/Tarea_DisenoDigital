@@ -1,0 +1,27 @@
+GET http://localhost:3000/tareas
+
+###
+GET http://localhost:3000/tareas/2
+
+###
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "titulo": "Completar tareas designadas",
+    "descripcion": "Finalizarlas antes",
+    "completada": true,
+    "fecha_creacion": "2024-02-12"
+}
+
+###
+PUT http://localhost:3000/tareas/2
+Content-Type: application/json
+
+{
+    "titulo": "Cambiar",
+    "descripcion": "completo"
+}
+
+###
+DELETE http://localhost:3000/tareas/2
